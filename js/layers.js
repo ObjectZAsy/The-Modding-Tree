@@ -47,6 +47,11 @@ addLayer("m", {
             effect() {
                 return player.points.add(1).pow(0.15)
             },
+        },
+        21: {
+            title: "Deep Cave Miners",
+            description: "Multiplies ore gain by 20.",
+            cost: new Decimal(20),
         }
     },
     layerShown(){return true}
