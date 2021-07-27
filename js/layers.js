@@ -27,12 +27,12 @@ addLayer("m", {
     ],
     upgrades: {
         11: {
-            name: "Cave Miners",
+            title: "Cave Miners",
             description: "Double your ore gain.",
             cost: new Decimal(1),
         },
         12: {
-            name: "Silver Pickaxes",
+            title: "Silver Pickaxes",
             description: "Scales effect based on miners.",
             cost: new Decimal(2),
             effect() {
@@ -41,7 +41,7 @@ addLayer("m", {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
         13: {
-            name: "Fierce Miners",
+            title: "Fierce Miners",
             description: "Ore boosts miner gain.",
             cost: new Decimal(5),
             effect() {
