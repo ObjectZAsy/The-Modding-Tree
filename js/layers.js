@@ -15,6 +15,7 @@ addLayer("m", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('p', 13)) mult = mult.times(upgradeEffect('p', 13))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -39,6 +40,14 @@ addLayer("m", {
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
+        13: {
+            name: "Fierce Miners",
+            description: "Ore boosts miner gain.",
+            cost: new Decimal(5),
+            effect() {
+                return player.points.add(1).pow(0.15)
+            },
+        }
     },
     layerShown(){return true}
 })
