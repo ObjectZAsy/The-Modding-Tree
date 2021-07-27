@@ -24,5 +24,12 @@ addLayer("m", {
     hotkeys: [
         {key: "m", description: "M: Reset for miners", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    upgrades: {
+        11: {
+            name: "Cave Miners",
+            description: "Double your ore gain.",
+            cost: new Decimal(1),
+        },
+    },
     layerShown(){return true}
 })

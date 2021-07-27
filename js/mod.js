@@ -1,8 +1,8 @@
 let modInfo = {
 	name: "The Mining Tree",
-	id: "mymod",
-	author: "nobody",
-	pointsName: "points",
+	id: "objectzmod513298",
+	author: "ObjectZ",
+	pointsName: "ore",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
