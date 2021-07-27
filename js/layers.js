@@ -34,6 +34,10 @@ addLayer("m", {
             name: "Silver Pickaxes",
             description: "Scales effect based on miners.",
             cost: new Decimal(2),
+            effect() {
+                return player[this.layer].points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
     },
     layerShown(){return true}
