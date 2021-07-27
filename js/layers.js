@@ -30,6 +30,11 @@ addLayer("m", {
             description: "Double your ore gain.",
             cost: new Decimal(1),
         },
+        12: {
+            name: "Silver Pickaxes",
+            description: "Scales effect based on miners.",
+            cost: new Decimal(2),
+        },
     },
     layerShown(){return true}
 })
