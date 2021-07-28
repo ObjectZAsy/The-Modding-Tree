@@ -52,7 +52,24 @@ addLayer("m", {
             title: "Deep Cave Miners",
             description: "Multiplies ore gain by 20.",
             cost: new Decimal(20),
-        }
+        },
+        22: {
+            title: "Golden Pickaxes",
+            description: "Scales effect based on miners more.",
+            cost: new Decimal(120),
+            effect() {
+                return player[this.layer].points.add(1).pow(2)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        },
+        23: {
+            title: "Miners with... axes?!",
+            description: "Ore boots miner gain more.",
+            cost: new Decimal(400),
+            effect() {
+                return player.points.add(10).pow(0.2)
+            },
+        },
     },
     layerShown(){return true}
 }),
@@ -63,7 +80,7 @@ addLayer("e", {
     position: 1, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: false,
-		points: new Decimal(100),
+		points: new Decimal(0),
     }},
     color: "#FFFF80",
     requires: new Decimal(100), // Can be a function that takes requirement increases into account
