@@ -69,7 +69,7 @@ addLayer("e", {
     requires: new Decimal(100), // Can be a function that takes requirement increases into account
     resource: "excavators", // Name of prestige currency
     baseResource: "miners", // Name of resource prestige is based on
-    baseAmount() {return player.miners.points}, // Get the current amount of baseResource
+    baseAmount() {return player.M.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 1, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
