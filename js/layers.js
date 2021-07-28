@@ -67,7 +67,7 @@ addLayer("m", {
             description: "Ore boots miner gain more.",
             cost: new Decimal(400),
             effect() {
-                return player.points.add(10).pow(0.2)
+                return player.points.add(2).pow(0.15)
             },
         },
     },
@@ -91,6 +91,7 @@ addLayer("e", {
     exponent: 1, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('e', 13)) mult = mult.times(upgradeEffect('e', 13))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -101,7 +102,14 @@ addLayer("e", {
         {key: "e", description: "E: Reset for excavators", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     upgrades: {
-        
+        11: {
+            title: "These look like cranes",
+            description: "Ore boosts excavator gain.",
+            cost: new Decimal(60),
+            effect() {
+                return player.points.add(1).pow(0.2)
+            },
+        }
     },
     layerShown(){return true}
 })
