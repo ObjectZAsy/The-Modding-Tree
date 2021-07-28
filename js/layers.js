@@ -56,6 +56,7 @@ addLayer("m", {
     },
     layerShown(){return true}
 }),
+
 addLayer("e", {
     name: "excavators", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "E", // This appears on the layer's node. Default is the id with the first letter capitalized
@@ -78,7 +79,7 @@ addLayer("e", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
-    row: 0, // Row the layer is in on the tree (0 is the first row)
+    row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "e", description: "E: Reset for excavators", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
