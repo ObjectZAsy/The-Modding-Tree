@@ -55,16 +55,12 @@ addLayer("m", {
         },
         22: {
             title: "Golden Pickaxes",
-            description: "Scales effect based on miners more.",
+            description: "Ore gain is tripled.",
             cost: new Decimal(120),
-            effect() {
-                return player[this.layer].points.add(1).pow(2)
-            },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
         23: {
             title: "Miners with... axes?!",
-            description: "Ore boots miner gain more.",
+            description: "Ore boosts miner gain more.",
             cost: new Decimal(400),
             effect() {
                 return player.points.add(2).pow(0.15)
@@ -82,7 +78,7 @@ addLayer("e", {
         unlocked: false,
 		points: new Decimal(0),
     }},
-    color: "#FFFF80",
+    color: "#FFC000",
     requires: new Decimal(100), // Can be a function that takes requirement increases into account
     resource: "excavators", // Name of prestige currency
     baseResource: "miners", // Name of resource prestige is based on
@@ -101,6 +97,12 @@ addLayer("e", {
     hotkeys: [
         {key: "e", description: "E: Reset for excavators", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    milestones: {
+        0: {
+            requirementDescription: "10 Excavators",
+            effectDescription: "Unlocks blasting sites. They are not resetted with excavator reset."
+        },
+    },
     upgrades: {
         11: {
             title: "These look like cranes",
@@ -109,6 +111,13 @@ addLayer("e", {
             effect() {
                 return player.points.add(1).pow(0.2)
             },
+        }
+    },
+    buyables: {
+        rows: 1,
+        cols: 1,
+        11: {
+            title: "Construction Sites"
         }
     },
     layerShown(){return true}
