@@ -118,7 +118,7 @@ addLayer("e", {
         cols: 1,
         11: {
             title: "Construction Sites"
-        }
+        },
     },
     layerShown(){return true}
 })
