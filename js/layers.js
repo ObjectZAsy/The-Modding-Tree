@@ -26,6 +26,8 @@ addLayer("m", {
         {key: "m", description: "M: Reset for miners", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     upgrades: {
+        rows: 2,
+        cols: 3,
         11: {
             title: "Cave Miners",
             description: "Double your ore gain.",
@@ -94,6 +96,7 @@ addLayer("e", {
     baseResource: "miners", // Name of resource prestige is based on
     baseAmount() {return player.m.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    branches: ["m"],
     exponent: 1, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
