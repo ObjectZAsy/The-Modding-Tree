@@ -55,8 +55,12 @@ addLayer("m", {
         },
         22: {
             title: "Golden Pickaxes",
-            description: "Ore gain is tripled.",
+            description: "Scales effect based on miners, but less than Silver Pickaxes.",
             cost: new Decimal(120),
+            effect() {
+                return player[this.layer].points.add(1).pow(0.4)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
         23: {
             title: "Miners with... axes?!",
