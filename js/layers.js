@@ -97,12 +97,6 @@ addLayer("e", {
     hotkeys: [
         {key: "e", description: "E: Reset for excavators", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    milestones: {
-        0: {
-            requirementDescription: "10 Excavators",
-            effectDescription: "Unlocks blasting sites. They are not resetted with excavator reset."
-        },
-    },
     upgrades: {
         11: {
             title: "These look like cranes",
@@ -112,13 +106,6 @@ addLayer("e", {
                 return player.points.add(1).pow(0.2)
             },
         }
-    },
-    buyables: {
-        rows: 1,
-        cols: 1,
-        11: {
-            title: "Construction Sites"
-        },
     },
     layerShown(){return true}
 })
