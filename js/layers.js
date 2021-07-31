@@ -25,6 +25,10 @@ addLayer("m", {
     hotkeys: [
         {key: "m", description: "M: Reset for miners", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    doReset(resettingLayer) {
+        let keep = [];
+        if (hasMilestone("e", 1) && resettingLayer=="e") keep.push("upgrades")
+    },
     upgrades: {
         rows: 2,
         cols: 3,
@@ -119,7 +123,7 @@ addLayer("e", {
         1: {
             requirementDescription: "35 Excavators",
             done() {return player.e.best.gte(35)},
-            effectDescription: "You keep the first row of prestige upgrades on excavator reset."
+            effectDescription: "You keep miner upgrades on excavator reset."
         }
     },
     upgrades: {
