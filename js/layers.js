@@ -110,6 +110,18 @@ addLayer("e", {
     hotkeys: [
         {key: "e", description: "E: Reset for excavators", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    milestones: {
+        0: {
+            requirementDescription: "15 Excavators",
+            done() {return player.e.best.gte(15)},
+            effectDescription: "Unlocks blasting sites, which are not resetted on excavator reset, but they reset miners.",
+        },
+        1: {
+            requirementDescription: "35 Excavators",
+            done() {return player.e.best.gte(35)},
+            effectDescription: "You keep the first row of prestige upgrades on excavator reset."
+        }
+    },
     upgrades: {
         11: {
             title: "These look like cranes",
