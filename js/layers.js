@@ -39,6 +39,7 @@ addLayer("m", {
                 return player[this.layer].points.add(1).pow(0.5)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+            unlocked(){return hasUpgrade('m', 11)}
         },
         13: {
             title: "Fierce Miners",
@@ -47,11 +48,14 @@ addLayer("m", {
             effect() {
                 return player.points.add(1).pow(0.15)
             },
+            unlocked(){return hasUpgrade('m', 12)}
+
         },
         21: {
             title: "Deep Cave Miners",
             description: "Multiplies ore gain by 20.",
             cost: new Decimal(20),
+            unlocked(){return hasUpgrade('m', 11)}
         },
         22: {
             title: "Golden Pickaxes",
@@ -61,6 +65,7 @@ addLayer("m", {
                 return player[this.layer].points.add(1).pow(0.4)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+            unlocked(){return hasUpgrade('m', 21)}
         },
         23: {
             title: "Miners with... axes?!",
@@ -69,6 +74,7 @@ addLayer("m", {
             effect() {
                 return player.points.add(2).pow(0.15)
             },
+            unlocked(){return hasUpgrade('m', 22)}
         },
     },
     layerShown(){return true}
