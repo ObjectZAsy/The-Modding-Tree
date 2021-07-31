@@ -120,6 +120,6 @@ addLayer("e", {
             },
         }
     },
-    layerShown(){return true}
+    layerShown(){return player.m.unlocked}
 })
 
