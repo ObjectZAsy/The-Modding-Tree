@@ -104,7 +104,6 @@ addLayer("e", {
     exponent: 1, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-        if (hasUpgrade('e', 13)) mult = mult.times(upgradeEffect('e', 13))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -137,5 +136,34 @@ addLayer("e", {
         }
     },
     layerShown(){return player.m.unlocked}
+}),
+addLayer("bs", {
+    name: "blasting sites",
+    symbol: "BS",
+    position: 2,
+    startData() { return {
+        unlocked: false,
+        points: new Decimal(0),
+    }},
+    color: "#1B2A35",
+    requires: new Decimal(1000),
+    resource: "blasting sites",
+    baseResource: "miners",
+    baseAmount() {return player.m.points}, // Get the current amount of baseResource
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    branches: ["m", "e"],
+    exponent: 1, // Prestige currency exponent
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        mult = new Decimal(1)
+        return mult
+    },
+    gainExp() { // Calculate the exponent on main currency from bonuses
+        return new Decimal(1)
+    },
+    row: 1, // Row the layer is in on the tree (0 is the first row)
+    hotkeys: [
+        {key: "b", description: "B: Reset for blasting sites", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+    ],
+    layerShown(){return true}
 })
 
