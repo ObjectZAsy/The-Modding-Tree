@@ -114,9 +114,9 @@ addLayer("e", {
         11: {
             title: "These look like cranes",
             description: "Ore boosts excavator gain.",
-            cost: new Decimal(60),
+            cost: new Decimal(10),
             effect() {
-                return player.points.add(1).pow(0.2)
+                return player.points.add(1).pow(0.1)
             },
         }
     },
